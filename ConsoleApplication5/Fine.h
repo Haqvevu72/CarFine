@@ -2,18 +2,28 @@
 class Fine
 {
 private:
-	short fine;
+	short fineAmount = 0;
 	string date;
 public:
-	// => Parametrized Constructor
-	Fine(short fine,string date)
+	Fine() = default;
+	Fine(short fine , string date)
 	{
-		this->fine = fine;
+		this->fineAmount = fine;
 		this->date = date;
 	}
-
+	Fine(const Fine& fine)
+	{
+		fineAmount = fine.fineAmount;
+		date = fine.date;
+	}
 	// => Show Fine
-	short getFine() { return fine; }
+	short getFine() { return fineAmount; }
 	string getDate() { return date; }
 
+	// => Show
+	void show()
+	{
+		cout <<"Fine amount: " << fineAmount<<" azn" << endl;
+		cout <<"Fine date: " << date << endl;
+	}
 };
